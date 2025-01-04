@@ -1,0 +1,49 @@
+# R Project Files
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+# renv (keep lock file but ignore library)
+renv/library/
+renv/local/
+renv/cellar/
+renv/lock.json
+renv/python/
+renv/staging/
+
+# Output directories
+results/*
+!results/.gitkeep
+!results/README.md
+
+data/*
+!data/.gitkeep
+!data/README.md
+
+# Temporary files
+*.tmp
+*.log
+*~
+.DS_Store
+Thumbs.db
+
+# Compressed files (data downloads)
+*.zip
+*.tar.gz
+*.rar
+
+# HTML outputs
+*.html
+
+# Plot outputs (keep some examples if desired)
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.svg
+
+# Package archives
+*.tar.gz
+*.zip

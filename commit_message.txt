@@ -1,0 +1,14 @@
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(setup): Initial repository structure and README
+
+Created initial repository with basic README, .gitignore, and directory structure. Set up project identity and goals. This is the foundation for all future work.
+
+Starting with proper structure (directories, .gitignore) prevents future headaches with committed data files or results. The .gitignore includes R-specific patterns for .RData, .Rhistory, renv/library/, data/, and results/ directories.
+
+Included:
+- Basic project description with overview and planned structure
+- R-specific ignore patterns
+- Data and results directory placeholders with README files
+
+Timeline: Day 1 - 30 minutes of initial setup.
+
+Verification: Repository structure validated, .gitignore tested with sample R session.

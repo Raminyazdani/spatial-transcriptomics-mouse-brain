@@ -1,0 +1,26 @@
+# Suggestion Ledger
+# Format: TYPE	FILE	LOCATOR	BEFORE_SNIPPET	PROPOSED_CHANGE	RATIONALE	STATUS
+
+# This file tracks all discovered issues before changes are applied.
+# STATUS will be updated to APPLIED or NOT_APPLIED after Phase 3.
+
+TRACE	Ramin_Atiya_project_script.R	lines 4-7	"# Authors:\n# Ramin Yazdani\n# Matriculation number: 7068679\n# Email: raya00001@stud.uni-saarland.de"	Remove entire author block with matriculation and student email	Assignment artifact - student identification not appropriate for portfolio	APPLIED
+TRACE	Ramin_Atiya_project_script.R	lines 9-11	"# Atia tul Wahab\n# Matriculation number: 7069720\n# Email: atwa00001@teams.uni-saarland.de"	Remove second author with matriculation and student email	Assignment artifact - student identification not appropriate for portfolio	APPLIED
+TRACE	Ramin_Atiya_project_script.R	line 18	"# Course: Single Cell Bioinformatics 2024-25"	Remove course reference	Assignment artifact - course name not appropriate for portfolio	APPLIED
+TRACE	Ramin_Atiya_project_script.R	line 19	"# Instructors: Jun-Prof. Dr. Fabian Müller, Dr. Fabian Kern, Dr. Thomas Hentrich"	Remove instructor names	Assignment artifact - instructor listing not appropriate for portfolio	APPLIED
+TRACE	Ramin_Atiya_project_script.R	lines 20-21	"# Assistants: Irem Göldüz, Midhuna Joseph Maran\n# Labs: Müller Lab, Kern Lab, and Schulze-Hentrich Lab @ Saarland University"	Remove assistant and lab references	Assignment artifact - teaching staff listing not appropriate for portfolio	APPLIED
+TRACE	Ramin_Atiya_project_script.R	line 23	"# Project: 3 - Spatial Transcriptomics Worksheet"	Remove project assignment reference	Assignment artifact - worksheet/assignment reference not appropriate for portfolio	APPLIED
+TRACE	Ramin_Atiya_project_script.R	line 24	"# Dataset: 10X Visum dataset including spatial gene expression data of a mouse brain"	Keep but reword	Move to documentation section and remove "dataset" prefix	APPLIED
+TRACE	Ramin_Atiya_project_script.R	line 25	"# Deadline: 19.01.2025, 23:59"	Remove deadline	Assignment artifact - submission deadline not appropriate for portfolio	APPLIED
+TRACE	Ramin_Atiya_project_script.R	lines 200-202	"################### Week 1 ##################################################################################\n##################  1 Spatial Transcriptomics (Bonus: 5P)##################################################\n################### 1.1 Properties of the Slides (1P) #######################################################"	Replace with descriptive section headers without point values	Assignment artifact - week numbers and point values indicate coursework structure	APPLIED
+TRACE	Ramin_Atiya_project_script.R	line 718	"################### Week 2: (15 Points) #####################################################################"	Replace with descriptive section header without point values	Assignment artifact - week numbers and point values indicate coursework structure	APPLIED
+PATH	Ramin_Atiya_project_script.R	line 61	'project_dir = "D:/scb3"'	Replace with relative path detection: 'project_dir <- dirname(sys.frame(1)$ofile) or getwd()'	Absolute Windows path prevents portability - won't work on other systems	APPLIED
+PATH	Ramin_Atiya_project_script.R	lines 62-65	"current_dir = getwd()\nif (current_dir != project_dir) {\n  setwd(project_dir)\n}"	Remove setwd() call, use project_dir as base for all file.path() calls	Using setwd() is fragile; better to use explicit paths	APPLIED
+PATH	README.md	line 47	"cd SCB"	Replace with "cd ." or remove line	Directory "SCB" doesn't exist - likely old folder name	APPLIED
+RENAME	Ramin_Atiya_project_script.R	filename	"Ramin_Atiya_project_script.R"	Rename to "analysis.R"	Filename contains author names (assignment artifact) - should be descriptive of function	APPLIED
+STRUCTURE	(new file)	root	N/A	Create .gitignore file for R projects	Missing .gitignore will cause unnecessary files to be committed	APPLIED
+STRUCTURE	(new directory)	root	N/A	Create data/ directory with .gitkeep and README.md	Data directory referenced in code but doesn't exist	APPLIED
+STRUCTURE	(new directory)	root	N/A	Create results/ directory with .gitkeep and README.md	Results directory referenced in code but doesn't exist	APPLIED
+DOC	Ramin_Atiya_project_script.R	lines 86-148	Interactive user prompts for file download	Add env var option (AUTO_DOWNLOAD=yes/no) and document in README	Interactive prompts prevent automated/reproducible runs	APPLIED
+DOC	Ramin_Atiya_project_script.R	lines 173-197	Interactive user prompts for cell marker download	Add env var option and document in README	Interactive prompts prevent automated/reproducible runs	APPLIED
+DOC	README.md	entire file	README references wrong paths and missing structure details	Update README to match actual structure and provide complete setup instructions	README doesn't accurately describe how to use the project	APPLIED
