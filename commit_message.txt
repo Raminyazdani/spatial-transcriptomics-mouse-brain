@@ -1,17 +1,21 @@
-Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(deps): Add renv for reproducible environment management
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | WIP(data): Add data loading and configuration framework
 
-Initialized renv to manage R package dependencies. This ensures reproducibility across different systems and over time. After exploring various packages needed (Seurat, dplyr, ggplot2, etc.), captured the environment in renv.lock.
+Implemented the foundation for loading 10X Visium spatial transcriptomics data. Added configuration handling for project paths and data sources. Started with basic Load10X_Spatial calls for both mouse brain sections.
 
-Key packages captured:
-- Seurat (v5.0+) for spatial transcriptomics analysis
-- dplyr for data manipulation  
-- ggplot2 and patchwork for visualization
-- SpatialExperiment for spatial data structures
-- CellChat and SCDC for cell type analysis
-- hdf5r for reading 10X HDF5 files
+Created main analysis.R script with:
+- Configuration section with PROJECT_DIR environment variable support for flexible path handling
+- Package loading statements for all required libraries
+- Data directory setup and validation
+- Basic Load10X_Spatial implementation for Section 1 and Section 2
+- Initial Seurat object creation with spatial metadata
 
-Setting up dependency management early prevents "works on my machine" problems and makes the project reproducible months or years later. The renv.lock file captures exact package versions including all transitive dependencies.
+The configuration uses environment variable detection with fallback to getwd(), allowing the script to work in different environments (local dev, CI/CD, different operating systems).
 
-Timeline: Day 1-2 (after package exploration) - 2 hours including testing various spatial transcriptomics packages.
+Data loading logic calls Seurat's Load10X_Spatial which reads:
+- Gene expression matrix (.h5 format)
+- Spatial coordinates (tissue_positions.csv)
+- Tissue images (tissue_lowres_image.png)
 
-Verification: Tested renv::restore() on clean R environment to ensure reproducibility.
+Timeline: Day 2-3 - 3 hours of implementation and testing with sample data structure.
+
+Verification: Tested path detection logic, validated Load10X_Spatial parameters against 10X Visium documentation.
