@@ -1,21 +1,39 @@
-Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | WIP(data): Add data loading and configuration framework
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | WIP(config): Add configuration validation and helper functions
 
-Implemented the foundation for loading 10X Visium spatial transcriptomics data. Added configuration handling for project paths and data sources. Started with basic Load10X_Spatial calls for both mouse brain sections.
+Added configuration validation helpers to ensure proper environment setup before data loading. Created utility functions for path validation and error reporting.
 
-Created main analysis.R script with:
-- Configuration section with PROJECT_DIR environment variable support for flexible path handling
-- Package loading statements for all required libraries
-- Data directory setup and validation
-- Basic Load10X_Spatial implementation for Section 1 and Section 2
-- Initial Seurat object creation with spatial metadata
+Implemented validation functions:
+```r
+# Validate project directory exists and is writable
+validate_project_dir <- function(dir_path) {
+  if (!dir.exists(dir_path)) {
+    stop(paste("Project directory does not exist:", dir_path))
+  }
+  if (!file.access(dir_path, mode = 2) == 0) {
+    warning(paste("Project directory may not be writable:", dir_path))
+  }
+  return(TRUE)
+}
 
-The configuration uses environment variable detection with fallback to getwd(), allowing the script to work in different environments (local dev, CI/CD, different operating systems).
+# Check required directories
+check_required_dirs <- function(base_dir) {
+  required <- c("data", "results")
+  for (dir in required) {
+    dir_path <- file.path(base_dir, dir)
+    if (!dir.exists(dir_path)) {
+      dir.create(dir_path, recursive = TRUE)
+      message(paste("Created directory:", dir_path))
+    }
+  }
+}
+```
 
-Data loading logic calls Seurat's Load10X_Spatial which reads:
-- Gene expression matrix (.h5 format)
-- Spatial coordinates (tissue_positions.csv)
-- Tissue images (tissue_lowres_image.png)
+Benefits:
+- Early error detection before attempting data operations
+- Helpful error messages guide user to fix issues
+- Automatic creation of required directories
+- Validates file system permissions
 
-Timeline: Day 2-3 - 3 hours of implementation and testing with sample data structure.
+Timeline: Day 3 - 1 hour implementing validation helpers.
 
-Verification: Tested path detection logic, validated Load10X_Spatial parameters against 10X Visium documentation.
+Verification: Tested with missing directories, read-only paths, confirmed helpful error messages.
