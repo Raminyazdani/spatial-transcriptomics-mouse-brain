@@ -1,39 +1,43 @@
-Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | WIP(config): Add configuration validation and helper functions
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | WIP(data): Implement data download framework
 
-Added configuration validation helpers to ensure proper environment setup before data loading. Created utility functions for path validation and error reporting.
+Created framework for handling automatic and interactive data downloads. Added support for downloading the 10X Visium dataset and CellMarker reference database.
 
-Implemented validation functions:
+Implemented download functions:
 ```r
-# Validate project directory exists and is writable
-validate_project_dir <- function(dir_path) {
-  if (!dir.exists(dir_path)) {
-    stop(paste("Project directory does not exist:", dir_path))
+download_with_prompt <- function(url, dest_path, description) {
+  auto_download <- tolower(Sys.getenv("AUTO_DOWNLOAD", "no"))
+  
+  if (file.exists(dest_path)) {
+    message(paste(description, "already exists"))
+    return(TRUE)
   }
-  if (!file.access(dir_path, mode = 2) == 0) {
-    warning(paste("Project directory may not be writable:", dir_path))
+  
+  if (auto_download == "yes") {
+    message(paste("Auto-downloading:", description))
+    download.file(url, dest_path, mode = "wb")
+    return(TRUE)
   }
-  return(TRUE)
-}
-
-# Check required directories
-check_required_dirs <- function(base_dir) {
-  required <- c("data", "results")
-  for (dir in required) {
-    dir_path <- file.path(base_dir, dir)
-    if (!dir.exists(dir_path)) {
-      dir.create(dir_path, recursive = TRUE)
-      message(paste("Created directory:", dir_path))
+  
+  if (interactive()) {
+    cat(paste("\n", description, "not found.\n"))
+    cat(paste("URL:", url, "\n"))
+    response <- readline("Download now? (yes/no): ")
+    if (tolower(response) == "yes") {
+      download.file(url, dest_path, mode = "wb")
+      return(TRUE)
     }
   }
+  
+  stop(paste("Required data not found:", description))
 }
 ```
 
-Benefits:
-- Early error detection before attempting data operations
-- Helpful error messages guide user to fix issues
-- Automatic creation of required directories
-- Validates file system permissions
+Features:
+- AUTO_DOWNLOAD environment variable for automation
+- Interactive prompts when run manually
+- File existence checking (skip if already downloaded)
+- Graceful error handling with instructions
 
-Timeline: Day 3 - 1 hour implementing validation helpers.
+Timeline: Day 3-4 - 2 hours implementing download framework and testing modes.
 
-Verification: Tested with missing directories, read-only paths, confirmed helpful error messages.
+Verification: Tested auto-download mode, interactive mode, and error cases.
