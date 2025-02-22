@@ -1,19 +1,16 @@
-Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(analysis): Examine slide properties and spot characteristics
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(qc): Calculate quality control metrics
 
-Analyzed basic properties of the Visium slides including spot counts, spatial dimensions, and tissue coverage patterns.
+Implemented comprehensive QC metrics calculation including mitochondrial, ribosomal, and hemoglobin percentages.
 
-Examined:
-- Total number of spots per section
-- Spatial coordinate ranges
-- Percentage of spots overlapping tissue
-- Image resolution and scaling factors
-- Spot spacing and tissue area coverage
+Calculated metrics:
+- nCount_Spatial (UMI counts)
+- nFeature_Spatial (gene counts)  
+- percent.mt (mitochondrial genes)
+- percent.ribo (ribosomal genes)
+- percent.hb (hemoglobin genes)
 
-Key findings inform:
-- Expected data size for memory allocation
-- Spatial resolution for visualization
-- Coverage uniformity across sections
+These metrics identify tissue quality issues and technical artifacts.
 
-Timeline: Day 5 - 1 hour examining slide metadata.
+Timeline: Day 7 - 2 hours implementing metric calculations.
 
-Verification: Compared spot counts and dimensions against 10X Visium specifications.
+Verification: Checked metric distributions match expected biological ranges.
