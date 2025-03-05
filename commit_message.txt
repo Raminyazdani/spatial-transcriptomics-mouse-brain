@@ -1,15 +1,44 @@
-Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(qc): Create QC visualizations
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | WIP(qc): Add spot filtering parameters configuration
 
-Generated comprehensive visualizations of QC metrics including violin plots, spatial feature plots, and distribution histograms.
+Created configurable parameters for quality control filtering. Allows easy adjustment of QC thresholds based on dataset characteristics.
 
-Visualizations reveal:
-- Spatial patterns in quality metrics
-- Correlation between metrics
-- Areas with potential issues
-- Overall data quality assessment
+Added parameter configuration:
+```r
+# QC filtering parameters (configurable)
+qc_params <- list(
+  min_features = 200,     # Minimum genes per spot
+  max_features = 6000,    # Maximum genes (doublet threshold)
+  max_mt_percent = 20,    # Maximum mitochondrial percentage
+  min_counts = 500,       # Minimum UMI counts
+  max_counts = 30000      # Maximum UMI counts (outlier threshold)
+)
 
-Created multi-panel summary plots saved to results/ directory.
+# Function to apply QC filters
+apply_qc_filters <- function(seurat_obj, params) {
+  original_spots <- ncol(seurat_obj)
+  
+  seurat_obj <- subset(seurat_obj,
+                      subset = nFeature_Spatial > params$min_features &
+                              nFeature_Spatial < params$max_features &
+                              percent.mt < params$max_mt_percent &
+                              nCount_Spatial > params$min_counts &
+                              nCount_Spatial < params$max_counts)
+  
+  filtered_spots <- ncol(seurat_obj)
+  message(sprintf("Filtered: %d → %d spots (%.1f%% retained)",
+                 original_spots, filtered_spots, 
+                 100 * filtered_spots / original_spots))
+  
+  return(seurat_obj)
+}
+```
 
-Timeline: Day 8 - 3 hours creating visualizations.
+Benefits:
+- Centralized parameter configuration
+- Easy to adjust thresholds for different datasets
+- Logging of filtering impact
+- Reusable filtering function
 
-Verification: Inspected plots for biological plausibility and spatial coherence.
+Timeline: Day 9-10 - 1 hour creating configurable QC framework.
+
+Verification: Tested with different threshold values, confirmed filtering statistics are logged correctly.
