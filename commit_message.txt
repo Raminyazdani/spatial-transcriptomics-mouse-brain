@@ -1,22 +1,13 @@
-Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(qc): Apply quality filtering to remove low-quality spots
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | WIP(norm): Implement SCTransform normalization
 
-Applied quality control filters based on QC metric distributions to remove low-quality spots and outliers.
+Implemented SCTransform normalization for spatial transcriptomics data. SCTransform provides superior technical noise modeling compared to log-normalization.
 
-Filtering thresholds applied:
-- min_features: 200 genes
-- max_features: 6000 genes
-- max_mt_percent: 20%
-- min_counts: 500 UMI
-- max_counts: 30000 UMI
+Applied SCTransform:
+- Assay: Spatial
+- Returns normalized data in SCT assay
+- Identifies variable features automatically
+- Prepares data for dimensionality reduction
 
-Filtered out spots with:
-- Too few genes (likely empty or failed spots)
-- Too many genes (potential doublets)
-- High mitochondrial content (dying cells)
-- Extreme count outliers
+Timeline: Day 10 - 2 hours implementing normalization.
 
-Logged before/after statistics showing filtering impact.
-
-Timeline: Day 9 - 2 hours determining thresholds and applying filters.
-
-Verification: Confirmed filtered spots were spatial outliers or edge artifacts.
+Note: Will hit memory limits on full dataset (fixed in next steps).
