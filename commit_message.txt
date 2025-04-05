@@ -1,13 +1,25 @@
-Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | WIP(norm): Implement SCTransform normalization
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | WIP(norm): Encounter memory limit error (OOPS #3)
 
-Implemented SCTransform normalization for spatial transcriptomics data. SCTransform provides superior technical noise modeling compared to log-normalization.
+Attempted to run SCTransform on full spatial dataset but hit R's default 500 MB future.globals.maxSize limit. This is a new issue discovered when processing the complete multi-section dataset.
 
-Applied SCTransform:
-- Assay: Spatial
-- Returns normalized data in SCT assay
-- Identifies variable features automatically
-- Prepares data for dimensionality reduction
+Error message:
+```
+Error: The total size of the X globals that need to be exported exceeds 500.00 MiB
+```
 
-Timeline: Day 10 - 2 hours implementing normalization.
+Root cause:
+- Processing multiple tissue sections simultaneously
+- Combined data size exceeds default R memory limits
+- Future package's parallel processing hits export size limit
+- Spatial data (expression + coordinates + images) is memory-intensive
 
-Note: Will hit memory limits on full dataset (fixed in next steps).
+This is different from the earlier memory issue (step 12-13) which was about general memory allocation. This specifically affects the future package's ability to export data to parallel workers.
+
+Symptoms:
+- Works on single sections
+- Fails when processing both sections together
+- Error during SCTransform parallel computations
+
+Timeline: Day 10 - 1 hour debugging error.
+
+Will need to adjust future package configuration in next step.
