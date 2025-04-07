@@ -1,25 +1,27 @@
-Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | WIP(norm): Encounter memory limit error (OOPS #3)
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | fix(norm): Increase future.globals.maxSize for multi-section processing (HOTFIX #3)
 
-Attempted to run SCTransform on full spatial dataset but hit R's default 500 MB future.globals.maxSize limit. This is a new issue discovered when processing the complete multi-section dataset.
+Fixed the future package memory limit error by increasing future.globals.maxSize. This allows processing multiple spatial sections simultaneously.
 
-Error message:
+Configuration added:
+```r
+# Increase future globals size for spatial transcriptomics
+# Needed when processing multiple sections with large spatial data
+options(future.globals.maxSize = 20000 * 1024^2)  # 20 GB
 ```
-Error: The total size of the X globals that need to be exported exceeds 500.00 MiB
-```
 
-Root cause:
-- Processing multiple tissue sections simultaneously
-- Combined data size exceeds default R memory limits
-- Future package's parallel processing hits export size limit
-- Spatial data (expression + coordinates + images) is memory-intensive
+Why this fixes the issue:
+- Allows exporting large objects to parallel workers
+- Spatial data includes expression matrices, coordinates, and images
+- Multiple sections compound the size requirements
+- 20 GB accommodates typical multi-section spatial experiments
 
-This is different from the earlier memory issue (step 12-13) which was about general memory allocation. This specifically affects the future package's ability to export data to parallel workers.
+This is a standard configuration for spatial transcriptomics workflows processing multiple samples.
 
-Symptoms:
-- Works on single sections
-- Fails when processing both sections together
-- Error during SCTransform parallel computations
+After fix:
+- SCTransform completes on all sections
+- No memory export errors
+- Parallel processing works correctly
 
-Timeline: Day 10 - 1 hour debugging error.
+Timeline: Day 10-11 - 30 minutes identifying and applying fix.
 
-Will need to adjust future package configuration in next step.
+Verification: Processed both sections successfully, confirmed normalized SCT assay created for all samples.
