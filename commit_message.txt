@@ -1,27 +1,14 @@
-Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | fix(norm): Increase future.globals.maxSize for multi-section processing (HOTFIX #3)
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(norm): Identify spatially variable features
 
-Fixed the future package memory limit error by increasing future.globals.maxSize. This allows processing multiple spatial sections simultaneously.
+Identified genes with highest spatial variability for downstream analysis. Variable features capture biological signal while filtering noise.
 
-Configuration added:
-```r
-# Increase future globals size for spatial transcriptomics
-# Needed when processing multiple sections with large spatial data
-options(future.globals.maxSize = 20000 * 1024^2)  # 20 GB
-```
+SCTransform automatically identifies ~3000 variable features based on expression variability across spots.
 
-Why this fixes the issue:
-- Allows exporting large objects to parallel workers
-- Spatial data includes expression matrices, coordinates, and images
-- Multiple sections compound the size requirements
-- 20 GB accommodates typical multi-section spatial experiments
+These features are used for:
+- PCA computation
+- Clustering  
+- Differential expression
 
-This is a standard configuration for spatial transcriptomics workflows processing multiple samples.
+Timeline: Day 11 - 1 hour analyzing variable features.
 
-After fix:
-- SCTransform completes on all sections
-- No memory export errors
-- Parallel processing works correctly
-
-Timeline: Day 10-11 - 30 minutes identifying and applying fix.
-
-Verification: Processed both sections successfully, confirmed normalized SCT assay created for all samples.
+Verification: Checked that variable features include known spatial markers.
