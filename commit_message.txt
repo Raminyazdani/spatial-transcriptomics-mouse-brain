@@ -1,9 +1,14 @@
-Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(dim-reduction): Implement PCA dimensionality reduction
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(dim-reduction): Create PCA diagnostic visualizations
 
-Implemented Principal Component Analysis to reduce dimensionality from ~3000 variable genes to 50 principal components.
+Created comprehensive PCA diagnostic plots including elbow plots, loadings heatmaps, and spatial PC projections.
 
-Computed 50 PCs capturing major axes of variation in gene expression. Created elbow plot to determine optimal number of PCs to retain (typically 20-30).
+Visualizations help determine:
+- How many PCs to retain
+- Which genes drive each PC
+- Spatial patterns in principal components
 
-Timeline: Day 12 - 2 hours implementing PCA and diagnostics.
+Identified optimal dimensionality: 30 PCs (based on elbow plot).
 
-Verification: Examined PC loadings for biological coherence.
+Timeline: Day 12-13 - 2 hours creating diagnostic visualizations.
+
+Verification: Confirmed spatial patterns in top PCs align with brain anatomy.
