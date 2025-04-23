@@ -1,14 +1,9 @@
-Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(dim-reduction): Create PCA diagnostic visualizations
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(dim-reduction): Add UMAP projection
 
-Created comprehensive PCA diagnostic plots including elbow plots, loadings heatmaps, and spatial PC projections.
+Implemented UMAP for non-linear dimensionality reduction from 30 PCs to 2D. UMAP preserves local and global structure for visualization.
 
-Visualizations help determine:
-- How many PCs to retain
-- Which genes drive each PC
-- Spatial patterns in principal components
+Used top 30 PCs as input based on elbow plot analysis. UMAP reveals cell type neighborhoods and biological gradients.
 
-Identified optimal dimensionality: 30 PCs (based on elbow plot).
+Timeline: Day 13 - 2 hours implementing UMAP.
 
-Timeline: Day 12-13 - 2 hours creating diagnostic visualizations.
-
-Verification: Confirmed spatial patterns in top PCs align with brain anatomy.
+Verification: Confirmed UMAP clusters correspond to spatial regions.
