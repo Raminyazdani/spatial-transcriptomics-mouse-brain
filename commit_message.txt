@@ -1,9 +1,9 @@
-Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(clustering): Build k-nearest neighbor graph
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(clustering): Implement Louvain clustering
 
-Built k-nearest neighbor graph in PCA space as foundation for clustering. Used 30 PCs for graph construction.
+Implemented graph-based clustering using Louvain algorithm to identify distinct spatial domains. Tested multiple resolutions (0.4, 0.6, 0.8, 1.0, 1.2).
 
-The KNN graph connects each spot to its most similar neighbors based on gene expression patterns. This graph structure enables community detection algorithms.
+Selected resolution 0.8 as optimal balance between granularity and interpretability. Clusters show spatial coherence and correspond to anatomical brain regions.
 
-Timeline: Day 14 - 1 hour building neighbor graph.
+Timeline: Day 14-15 - 3 hours testing resolutions and evaluating clusters.
 
-Verification: Checked graph statistics (degree distribution, connectivity).
+Verification: Confirmed clusters are spatially contiguous and anatomically meaningful.
