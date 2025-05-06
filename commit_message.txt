@@ -1,9 +1,13 @@
-Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(clustering): Implement Louvain clustering
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(clustering): Create spatial cluster visualizations
 
-Implemented graph-based clustering using Louvain algorithm to identify distinct spatial domains. Tested multiple resolutions (0.4, 0.6, 0.8, 1.0, 1.2).
+Created comprehensive visualizations of clustering results overlaid on tissue images. Shows clear correspondence between clusters and brain anatomy.
 
-Selected resolution 0.8 as optimal balance between granularity and interpretability. Clusters show spatial coherence and correspond to anatomical brain regions.
+Visualizations include:
+- SpatialDimPlot with clusters on tissue
+- UMAP colored by cluster
+- Cluster size distributions
+- Spatial coherence assessment
 
-Timeline: Day 14-15 - 3 hours testing resolutions and evaluating clusters.
+Timeline: Day 15 - 2 hours creating cluster visualizations.
 
-Verification: Confirmed clusters are spatially contiguous and anatomically meaningful.
+Verification: Validated spatial coherence, compared to mouse brain atlas.
