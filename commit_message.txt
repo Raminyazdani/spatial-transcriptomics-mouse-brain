@@ -1,13 +1,14 @@
-Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(clustering): Create spatial cluster visualizations
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(markers): Calculate differential expression for all clusters
 
-Created comprehensive visualizations of clustering results overlaid on tissue images. Shows clear correspondence between clusters and brain anatomy.
+Implemented differential expression analysis using FindAllMarkers to identify marker genes for each spatial cluster.
 
-Visualizations include:
-- SpatialDimPlot with clusters on tissue
-- UMAP colored by cluster
-- Cluster size distributions
-- Spatial coherence assessment
+Parameters:
+- only.pos = TRUE (upregulated markers)
+- min.pct = 0.25 (expressed in 25% of spots)
+- logfc.threshold = 0.25
 
-Timeline: Day 15 - 2 hours creating cluster visualizations.
+Generates ranked marker lists for each cluster enabling biological interpretation.
 
-Verification: Validated spatial coherence, compared to mouse brain atlas.
+Timeline: Day 15-16 - 2 hours running differential expression.
+
+Verification: Checked that top markers have biological relevance.
