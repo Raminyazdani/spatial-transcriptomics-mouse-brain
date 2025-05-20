@@ -1,14 +1,12 @@
-Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(markers): Calculate differential expression for all clusters
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(markers): Extract and rank top marker genes
 
-Implemented differential expression analysis using FindAllMarkers to identify marker genes for each spatial cluster.
+Processed FindAllMarkers results to extract top marker genes per cluster. Filtered and ranked by statistical significance and fold change.
 
-Parameters:
-- only.pos = TRUE (upregulated markers)
-- min.pct = 0.25 (expressed in 25% of spots)
-- logfc.threshold = 0.25
+Created tables of:
+- Top 10 markers per cluster
+- Marker expression patterns
+- Statistical metrics (p-values, fold changes)
 
-Generates ranked marker lists for each cluster enabling biological interpretation.
+Timeline: Day 16 - 1 hour processing marker results.
 
-Timeline: Day 15-16 - 2 hours running differential expression.
-
-Verification: Checked that top markers have biological relevance.
+Verification: Spot-checked top markers against literature.
