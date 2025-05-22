@@ -1,12 +1,12 @@
-Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(markers): Extract and rank top marker genes
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(markers): Create marker gene heatmaps
 
-Processed FindAllMarkers results to extract top marker genes per cluster. Filtered and ranked by statistical significance and fold change.
+Generated heatmaps showing expression patterns of top marker genes across all clusters. Heatmaps reveal cluster-specific expression signatures.
 
-Created tables of:
-- Top 10 markers per cluster
-- Marker expression patterns
-- Statistical metrics (p-values, fold changes)
+Visualizations include:
+- DoHeatmap of top markers
+- Expression scaled by cluster
+- Hierarchical clustering of genes and spots
 
-Timeline: Day 16 - 1 hour processing marker results.
+Timeline: Day 16 - 2 hours creating heatmaps.
 
-Verification: Spot-checked top markers against literature.
+Verification: Confirmed markers show cluster-specific enrichment.
