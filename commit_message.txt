@@ -1,12 +1,13 @@
-Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(markers): Create marker gene heatmaps
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(markers): Create spatial feature plots for key markers
 
-Generated heatmaps showing expression patterns of top marker genes across all clusters. Heatmaps reveal cluster-specific expression signatures.
+Created spatial feature plots showing marker expression overlaid on tissue images. Reveals spatial distribution patterns of cell type markers.
 
-Visualizations include:
-- DoHeatmap of top markers
-- Expression scaled by cluster
-- Hierarchical clustering of genes and spots
+Plotted key markers:
+- Thy1 (neurons)
+- Gad1 (inhibitory neurons)
+- Mbp (oligodendrocytes)
+- Aldh1l1 (astrocytes)
 
-Timeline: Day 16 - 2 hours creating heatmaps.
+Timeline: Day 16-17 - 2 hours creating spatial feature plots.
 
-Verification: Confirmed markers show cluster-specific enrichment.
+Verification: Confirmed marker spatial patterns match expected brain anatomy.
