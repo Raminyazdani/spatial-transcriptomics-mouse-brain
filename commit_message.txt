@@ -1,13 +1,13 @@
-Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(markers): Create spatial feature plots for key markers
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(markers): Interpret marker genes and annotate clusters
 
-Created spatial feature plots showing marker expression overlaid on tissue images. Reveals spatial distribution patterns of cell type markers.
+Interpreted differential expression results to assign preliminary biological identities to clusters based on marker expression.
 
-Plotted key markers:
-- Thy1 (neurons)
-- Gad1 (inhibitory neurons)
-- Mbp (oligodendrocytes)
-- Aldh1l1 (astrocytes)
+Annotations:
+- Clusters with Thy1, Snap25 → Excitatory neurons
+- Clusters with Gad1, Gad2 → Inhibitory neurons
+- Clusters with Mbp → Oligodendrocytes
+- Clusters with Aldh1l1 → Astrocytes
 
-Timeline: Day 16-17 - 2 hours creating spatial feature plots.
+Timeline: Day 17 - 2 hours interpreting markers.
 
-Verification: Confirmed marker spatial patterns match expected brain anatomy.
+Verification: Cross-referenced with literature, confirmed biological plausibility.
