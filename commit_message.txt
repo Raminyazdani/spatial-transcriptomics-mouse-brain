@@ -1,13 +1,9 @@
-Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(markers): Interpret marker genes and annotate clusters
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | WIP(annotation): Download CellMarker reference database
 
-Interpreted differential expression results to assign preliminary biological identities to clusters based on marker expression.
+Implemented downloading of CellMarker reference database for systematic cell type annotation. Added support for both interactive and automatic download modes.
 
-Annotations:
-- Clusters with Thy1, Snap25 → Excitatory neurons
-- Clusters with Gad1, Gad2 → Inhibitory neurons
-- Clusters with Mbp → Oligodendrocytes
-- Clusters with Aldh1l1 → Astrocytes
+Database provides curated cell type markers from literature for mouse brain tissue.
 
-Timeline: Day 17 - 2 hours interpreting markers.
+Timeline: Day 17-18 - 1 hour implementing download.
 
-Verification: Cross-referenced with literature, confirmed biological plausibility.
+Verification: Confirmed database downloaded successfully.
