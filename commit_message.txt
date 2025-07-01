@@ -1,9 +1,14 @@
-Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | WIP(annotation): Download CellMarker reference database
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(annotation): Process CellMarker database
 
-Implemented downloading of CellMarker reference database for systematic cell type annotation. Added support for both interactive and automatic download modes.
+Loaded and filtered CellMarker database to mouse brain markers. Extracted marker gene lists for major cell types.
 
-Database provides curated cell type markers from literature for mouse brain tissue.
+Filtered to:
+- Species: Mouse
+- Tissue: Brain
+- Major cell types (neurons, glia, etc.)
 
-Timeline: Day 17-18 - 1 hour implementing download.
+Created lookup tables for annotation workflow.
 
-Verification: Confirmed database downloaded successfully.
+Timeline: Day 18 - 2 hours processing database.
+
+Verification: Validated marker lists against known cell types.
