@@ -1,14 +1,14 @@
-Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(annotation): Process CellMarker database
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(annotation): Calculate cell type enrichment scores
 
-Loaded and filtered CellMarker database to mouse brain markers. Extracted marker gene lists for major cell types.
+Calculated module scores for each cell type using CellMarker reference markers. Enrichment scores indicate likelihood of each cell type per spot.
 
-Filtered to:
-- Species: Mouse
-- Tissue: Brain
-- Major cell types (neurons, glia, etc.)
+Used AddModuleScore to compute enrichment for:
+- Excitatory neurons
+- Inhibitory neurons
+- Astrocytes
+- Oligodendrocytes
+- Microglia
 
-Created lookup tables for annotation workflow.
+Timeline: Day 18-19 - 2 hours calculating scores.
 
-Timeline: Day 18 - 2 hours processing database.
-
-Verification: Validated marker lists against known cell types.
+Verification: Checked score distributions are biologically plausible.
