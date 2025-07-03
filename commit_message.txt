@@ -1,14 +1,11 @@
-Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(annotation): Calculate cell type enrichment scores
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(annotation): Assign cell types to clusters
 
-Calculated module scores for each cell type using CellMarker reference markers. Enrichment scores indicate likelihood of each cell type per spot.
+Assigned final cell type annotations to clusters based on module scores and marker expression patterns.
 
-Used AddModuleScore to compute enrichment for:
-- Excitatory neurons
-- Inhibitory neurons
-- Astrocytes
-- Oligodendrocytes
-- Microglia
+Each cluster assigned primary cell type identity based on highest enrichment scores and spatial coherence.
 
-Timeline: Day 18-19 - 2 hours calculating scores.
+Created annotated visualizations showing cell type distribution across tissue.
 
-Verification: Checked score distributions are biologically plausible.
+Timeline: Day 19 - 3 hours finalizing annotations.
+
+Verification: Validated annotations against brain atlas, confirmed spatial coherence.
