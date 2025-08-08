@@ -1,11 +1,15 @@
-Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(annotation): Assign cell types to clusters
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(portability): Implement cross-platform path handling
 
-Assigned final cell type annotations to clusters based on module scores and marker expression patterns.
+Refactored all path handling to be OS-agnostic. Removed hardcoded paths, added environment variable support.
 
-Each cluster assigned primary cell type identity based on highest enrichment scores and spatial coherence.
+Changes:
+- PROJECT_DIR environment variable
+- Automatic script location detection
+- file.path() for all path construction
+- No setwd() calls
 
-Created annotated visualizations showing cell type distribution across tissue.
+Works on Windows, macOS, Linux without modification.
 
-Timeline: Day 19 - 3 hours finalizing annotations.
+Timeline: Day 19-20 - 2 hours refactoring paths.
 
-Verification: Validated annotations against brain atlas, confirmed spatial coherence.
+Verification: Tested on Windows and Linux.
