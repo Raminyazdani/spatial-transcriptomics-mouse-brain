@@ -1,15 +1,13 @@
-Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(portability): Implement cross-platform path handling
+Ramin Yazdani | spatial-transcriptomics-mouse-brain | main | feat(config): Add environment variable configuration
 
-Refactored all path handling to be OS-agnostic. Removed hardcoded paths, added environment variable support.
+Added comprehensive environment variable support for automation and CI/CD compatibility.
 
-Changes:
-- PROJECT_DIR environment variable
-- Automatic script location detection
-- file.path() for all path construction
-- No setwd() calls
+Environment variables:
+- AUTO_DOWNLOAD: Enable automated data download
+- PROJECT_DIR: Custom project directory
 
-Works on Windows, macOS, Linux without modification.
+Enables non-interactive execution for automated workflows.
 
-Timeline: Day 19-20 - 2 hours refactoring paths.
+Timeline: Day 20-21 - 2 hours implementing env var support.
 
-Verification: Tested on Windows and Linux.
+Verification: Tested automated execution with AUTO_DOWNLOAD=yes.
